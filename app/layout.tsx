@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 
 interface LayoutProps {
@@ -9,7 +10,19 @@ export default function RootLayout({ children }: LayoutProps) {
     <html lang="en">
       <body>
         <header>
-          [header]
+          <nav>
+            <ul>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
+              <li>
+                <Link href="/reviews">Reviews</Link>
+              </li>
+              <li>
+                <Link href="/" prefetch={false}>About</Link>
+              </li>
+            </ul>
+          </nav>
         </header>
         <main>
           {children}
