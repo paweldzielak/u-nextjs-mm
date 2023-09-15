@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
+import "./globals.css"
+import Navbar from '../components/Navbar';
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -8,27 +11,16 @@ interface LayoutProps {
 export default function RootLayout({ children }: LayoutProps) {
   return (
     <html lang="en">
-      <body>
-        <header>
-          <nav>
-            <ul>
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/reviews">Reviews</Link>
-              </li>
-              <li>
-                <Link href="/" prefetch={false}>About</Link>
-              </li>
-            </ul>
-          </nav>
+      <body className='bg-orange-50 flex flex-col px-4 py-2 min-h-screen'>
+        <header>  
+          <Navbar />
         </header>
-        <main>
+        <main className='py-3 grow'>
           {children}
         </main>
-        <footer>
-          [footer]
+        <footer className="border-t py-3 text-center text-xs">
+          Game data and images courtesy
+          of <a href='https://rawg.io/' target='_blank' className='text-orange-800 hover:underline'>RAWG</a>
         </footer>
       </body>
     </html>

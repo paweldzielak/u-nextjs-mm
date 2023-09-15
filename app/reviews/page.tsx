@@ -1,10 +1,20 @@
+import Link from "next/link";
+import Heading from "@/components/Heading";
+
 export default function Reviews() {
   return (
     <>
-    <h1>Reviews</h1>
-    <p>
-      Here we'll list all the reviews
-    </p>
-    </>
+    <Heading text={'Reviews'} />
+      <nav>
+        <ul>
+          <li>
+            <Link href={"/reviews/hollow-knight"}>hollow-knight</Link>
+          </li>
+          <li>
+            <Link href={"/reviews/stardew-valley"}>stardew-valley</Link>
+          </li>
+        </ul>
+      </nav>
+      </>
   )
 }
