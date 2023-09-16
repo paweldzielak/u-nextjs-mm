@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { orbitron } from './fonts';
 import type { ReactNode } from 'react';
 
 import "./globals.css"
@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en">
+    <html lang="en" className={orbitron.variable}>
       <body className='bg-orange-50 flex flex-col px-4 py-2 min-h-screen'>
         <header>  
           <Navbar />
