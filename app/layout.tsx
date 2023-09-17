@@ -1,4 +1,4 @@
-import { orbitron } from './fonts';
+import { orbitron, exo2 } from './fonts';
 import type { ReactNode } from 'react';
 
 import "./globals.css"
@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export default function RootLayout({ children }: LayoutProps) {
   return (
-    <html lang="en" className={orbitron.variable}>
+    <html lang="en" className={`${orbitron.variable} ${exo2.variable}`}>
       <body className='bg-orange-50 flex flex-col px-4 py-2 min-h-screen'>
         <header>  
           <Navbar />

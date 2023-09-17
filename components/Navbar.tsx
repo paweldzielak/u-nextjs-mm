@@ -6,11 +6,11 @@ export const Navbar: React.FC = ({ }) => {
     <ul className='flex gap-20'>
       <li>
         <Link href="/"
-          className='text-orange-800 hover:underline font-orbitron'>
+          className='font-bold text-orange-800 hover:underline font-orbitron'>
           Indie Gamer
         </Link>
       </li>
-      <li>
+      <li className='ml-auto'>
         <Link href="/reviews"
           className='text-orange-800 hover:underline font-orbitron'>
           Reviews
