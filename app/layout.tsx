@@ -3,10 +3,18 @@ import type { ReactNode } from 'react';
 
 import "./globals.css"
 import Navbar from '../components/Navbar';
+import { Metadata } from 'next';
 
 interface LayoutProps {
   children: ReactNode;
 }
+
+export const metadata: Metadata = {
+  title: {
+    default: "Indie Gamer",
+    template: "%s | Indie Gamer"
+  },
+} 
 
 export default function RootLayout({ children }: LayoutProps) {
   return (

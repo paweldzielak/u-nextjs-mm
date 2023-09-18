@@ -17,7 +17,7 @@ export const Navbar: React.FC = ({ }) => {
         </Link>
       </li>
       <li>
-        <Link href="/" prefetch={false}
+        <Link href="/about" prefetch={false}
           className='text-orange-800 hover:underline font-orbitron'>
           About
         </Link>

@@ -10,23 +10,31 @@ export interface Review {
   body: string
 }
 
-export const getReview = async (path: string) : Promise<Review> => {
+export async function getFeaturedReview(): Promise<Review> {
+  const reviews = await getReviews();
+  return reviews[0];
+}
+
+export const getReview = async (path: string): Promise<Review> => {
   const text = await readFile(`./content/reviews/${path}.md`, "utf-8");
   const { content, data: { title, date, image } } = matter(text);
   const body = marked(content)
   return { slug: path, title, date, image, body }
 }
 
-export const getReviews = async () => {
-  const games = (await readdir("./content/reviews/"))
-    .filter((filename) => filename.endsWith('.md'))
-    .map(filename => filename.slice(0, -'.md'.length))
+export async function getSlugs(): Promise<string[]> {
+  const files = await readdir('./content/reviews');
+  return files.filter((file) => file.endsWith('.md'))
+    .map((file) => file.slice(0, -'.md'.length));
+}
 
-  const reviews: Review[] = []
-  for (const game of games) {
-    const review = await getReview(game)
-    reviews.push(review)
+export async function getReviews(): Promise<Review[]> {
+  const slugs = await getSlugs();
+  const reviews: Review[] = [];
+  for (const slug of slugs) {
+    const review = await getReview(slug);
+    reviews.push(review);
   }
-
-  return reviews
+  reviews.sort((a, b) => b.date.localeCompare(a.date));
+  return reviews;
 }
